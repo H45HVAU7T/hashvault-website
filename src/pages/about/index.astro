@@ -1,7 +1,14 @@
 ---
 import MorseCode from "../../components/MorseCode.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import Team from "./Team.astro";
+import TeamCard from "./TeamCard.astro";
+
+const teams = [
+  { name: "Management Team", icon: "briefcase" },
+  { name: "Logistics Team", icon: "list-checks" },
+  { name: "Media Team", icon: "camera" },
+  { name: "Tech Team", icon: "desktop" },
+];
 ---
 
 <MainLayout>
@@ -120,7 +127,20 @@ import Team from "./Team.astro";
       >
         MEET OUR TEAM
       </h1>
-      <Team />
+
+      <div class="flex flex-col gap-12">
+        {
+          teams.map((team) => (
+            <div>
+              <span class="border-hash-purple flex flex-row items-center gap-2 border-2 border-b-0 p-3 font-mono font-bold uppercase">
+                <i class={`ph ph-${team.icon} text-xl text-white`} />
+                <h2>{team.name}</h2>
+              </span>
+              <TeamCard />
+            </div>
+          ))
+        }
+      </div>
     </div>
 
     <!-- CORE VALUES -->
