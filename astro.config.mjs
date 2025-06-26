@@ -18,6 +18,7 @@ export default defineConfig({
     markdoc(),
     starlight({
       title: "HASHVAULT",
+      disable404Route: true,
       components: {
         Header: "./src/components/DocsHeader.astro",
         ThemeProvider: "./src/components/ForceDarkTheme.astro",
