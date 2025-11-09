@@ -1,44 +1,33 @@
 ---
 import HashFill from "./HashFill.astro";
-const mailto = "mailto:contact@hashvault.club";
-const resources = "/vault/hv-resources";
-const hallOfFame = "/vault/hv-hof";
-const ctfPlatform = "https://ctf.hashvault.club/";
+
+const navLinks = [
+  { label: "/ABOUT-US", href: "/about" },
+  { label: "/EVENTS", href: "/events" },
+  { label: "/HASHLABS", href: "https://hashlabs.hashvault.club/", external: true },
+  { label: "/RESOURCES", href: "/vault/hv-resources" },
+  { label: "/HALL-OF-FAME", href: "/vault/hv-hof" },
+  { label: "/CONTACT", href: "mailto:contact@hashvault.club" },
+];
 ---
 
 <nav
   class="bg-hash-black/30 divide-hash-purple z-[60] flex flex-col items-center justify-between divide-y-2 leading-none backdrop-blur-xs xl:h-30 xl:flex-row xl:divide-x-2 xl:divide-y-0"
 >
-  {/* Hyperlinks */}
-  <div
-    class="font-brutal md:text-md hidden h-full w-full px-5 py-4 text-sm font-black xl:block"
-  >
+  <div class="font-brutal md:text-md hidden h-full w-full px-5 py-4 text-sm font-black xl:block">
     <ul class="grid h-full grid-flow-col grid-rows-3 items-center">
-      <a
-        class="w-fit self-start transition duration-100 hover:opacity-75"
-        href="/about">/ABOUT-US</a
-      >
-      <a class="w-fit transition duration-100 hover:opacity-75" href="/events"
-        >/EVENTS</a
-      >
-      <a
-        class="w-fit self-end transition duration-100 hover:opacity-75"
-        href={ctfPlatform}
-        target="_blank"
-        rel="noopener noreferrer">/CTF-PLATFORM</a
-      >
-      <a
-        class="w-fit self-start transition duration-100 hover:opacity-75"
-        href={resources}>/RESOURCES</a
-      >
-      <a
-        class="w-fit transition duration-100 hover:opacity-75"
-        href={hallOfFame}>/HALL-OF-FAME</a
-      >
-      <a
-        class="w-fit self-end transition duration-100 hover:opacity-75"
-        href={mailto}>/CONTACT</a
-      >
+      {navLinks.map((link, i) => (
+        <a
+          class={`w-fit transition duration-100 hover:opacity-75 ${
+            i % 3 === 0 ? "self-start" : i % 3 === 1 ? "" : "self-end"
+          }`}
+          href={link.href}
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
     </ul>
   </div>
 
@@ -68,8 +57,8 @@ const ctfPlatform = "https://ctf.hashvault.club/";
       </button>
     </div>
 
-    {/* Dropdown Menu */}
     <div
+      x-cloak
       x-show="open"
       @click.outside="open = false"
       x-transition:enter="transition ease-out duration-100"
@@ -80,19 +69,20 @@ const ctfPlatform = "https://ctf.hashvault.club/";
       x-transition:leave-end="opacity-0 translate-y-1"
       class="bg-hash-black border-hash-purple absolute top-full flex w-full flex-col items-start gap-2 border-b-2 px-3 py-4 backdrop-blur-md"
     >
-      <a href="/about" class="transition active:opacity-75">/ABOUT-US</a>
-      <a href="/events" class="transition active:opacity-75">/EVENTS</a>
-      <a href={ctfPlatform} class="transition active:opacity-75"
-        >/CTF-PLATFORM</a
-      >
-      <a href={resources} class="transition active:opacity-75">/RESOURCES</a>
-      <a href={hallOfFame} class="transition active:opacity-75">/HALL-OF-FAME</a
-      >
-      <a href={mailto} class="transition active:opacity-75">/CONTACT</a>
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="transition active:opacity-75"
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+          @click="open = false"
+        >
+          {link.label}
+        </a>
+      ))}
     </div>
   </div>
 
-  {/* Latest Updates */}
   <div class="w-full px-3 pt-2 pb-3 xl:px-5 xl:py-4">
     <div class="grid w-full grid-rows-1 gap-1 align-top xl:gap-4">
       <div class="flex h-fit items-center gap-2 overflow-hidden">
@@ -103,39 +93,18 @@ const ctfPlatform = "https://ctf.hashvault.club/";
       <div
         class="scrollbar scrollbar-thumb-transparent scrollbar-track-transparent flex w-full snap-x gap-2 overflow-x-auto md:mx-auto md:items-center md:overflow-x-visible"
       >
-        {/* <a
-          class="bg-hash-black/30 w-full min-w-3xs snap-center backdrop-blur-xl transition duration-100 hover:scale-[99%] hover:opacity-75 md:min-w-0 xl:w-fit"
-          href="/blog"
-        > */}
         <div class="border-hash-purple h-full w-full border-2 p-2">
           <p class="text-center font-mono text-xs text-clip hyphens-auto">
             Coming Soon
           </p>
         </div>
-        {/* </a> */}
-
-        {/* <a
-          class="bg-hash-black/30 w-full min-w-3xs snap-center backdrop-blur-xl transition duration-100 hover:scale-[99%] hover:opacity-75 md:min-w-0 xl:w-fit"
-          href="/blog"
-        >
-          <div class="border-hash-purple border-2 p-2">
-            <p class="text-justify font-mono text-xs text-clip hyphens-auto">
-              AI-Powered Phishing Kits Are on the Rise
-            </p>
-          </div>
-        </a>
-
-        <a
-          class="bg-hash-black/30 w-full min-w-3xs snap-center backdrop-blur-xl transition duration-100 hover:scale-[99%] hover:opacity-75 md:min-w-0 xl:w-fit"
-          href="/blog"
-        >
-          <div class="border-hash-purple w-fit border-2 p-2">
-            <p class="text-justify font-mono text-xs text-clip hyphens-auto">
-              Zero-Day in the Wild: New Windows Exploit Surfaces
-            </p>
-          </div>
-        </a> */}
       </div>
     </div>
   </div>
 </nav>
+
+<style>
+  [x-cloak] {
+    display: none !important;
+  }
+</style>

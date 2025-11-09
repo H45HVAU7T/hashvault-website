@@ -6,206 +6,7 @@ import CameraBackground from "@/assets/camera.png";
 import LockBackground from "@/assets/lock.png";
 import { Image } from "astro:assets";
 
-// Management Team
-import adithya from "@avatars/adithya.avif";
-import abhishek from "@avatars/abhishek.png";
-import kruthika from "@avatars/kruthika.avif";
-
-// Logistics Team
-import nishitha from "@avatars/nishitha.avif";
-import kushal from "@avatars/kushal.png";
-import sreekar from "@avatars/sreekar.avif";
-import sudeeksha from "@avatars/sudeeksha.png";
-
-// Events Team
-import dhanvi from "@avatars/dhanvi.png";
-import urvee from "@avatars/urvee.png";
-import harshita from "@avatars/harshita.png";
-
-// Media Team
-import deekshitha from "@avatars/deekshitha.png";
-import shreya from "@avatars/shreya.png";
-import praveen from "@avatars/praveen.avif";
-import janhavi from "@avatars/janhavi.png";
-
-// Tech Team
-import rahul from "@avatars/rahul.avif";
-import abhay from "@avatars/abhay.avif";
-import abhiram from "@avatars/abhiram.avif";
-
-// Marketing Team
-import sakshi from "@avatars/sakshi.png";
-import jessica from "@avatars/jessica.avif";
-import samiksha from "@avatars/samiksha.png";
-
-// CTF Team
-import sagar from "@avatars/sagar.png";
-import jeffery from "@avatars/jeffery.png";
-import vachan from "@avatars/vachan.png";
-
-const teams = [
-  {
-    name: "Management Team",
-    icon: "briefcase",
-    members: [
-      {
-        id: "01",
-        name: "Adithya Karthik M",
-        position: "President",
-        image: adithya,
-      },
-      {
-        id: "02",
-        name: "Abhishek",
-        position: "Vice President",
-        image: abhishek,
-      },
-      {
-        id: "03",
-        name: "Kruthika B A",
-        position: "Secretary",
-        image: kruthika,
-      },
-    ],
-  },
-  {
-    name: "Logistics Team",
-    icon: "list-checks",
-    members: [
-      {
-        id: "01",
-        name: "Nishita Sridhar",
-        position: "Team Lead",
-        image: nishitha,
-      },
-      {
-        id: "02",
-        name: "Kushal Maji",
-        position: "Team Associate",
-        image: kushal,
-      },
-      {
-        id: "03",
-        name: "Sreekar S Vasist",
-        position: "Team Associate",
-        image: sreekar,
-      },
-      {
-        id: "04",
-        name: "Sudeeksha H",
-        position: "Team Associate",
-        image: sudeeksha,
-      },
-    ],
-  },
-  {
-    name: "Events Team",
-    icon: "calendar-heart",
-    members: [
-      {
-        id: "01",
-        name: "Kruthika B A",
-        position: "Team Lead",
-        image: kruthika,
-      },
-      {
-        id: "02",
-        name: "Dhanvi M R",
-        position: "Team Associate",
-        image: dhanvi,
-      },
-      {
-        id: "03",
-        name: "Urvee S Bettadapur",
-        position: "Team Associate",
-        image: urvee,
-      },
-      {
-        id: "04",
-        name: "R Harshita",
-        position: "Team Associate",
-        image: harshita,
-      },
-    ],
-  },
-  {
-    name: "Media Team",
-    icon: "camera",
-    members: [
-      {
-        id: "01",
-        name: "Deekshitha B",
-        position: "Team Lead",
-        image: deekshitha,
-      },
-      {
-        id: "02",
-        name: "Shreya Shri Pathak ",
-        position: "Team Associate",
-        image: shreya,
-      },
-      {
-        id: "03",
-        name: "P Praveen Kumar",
-        position: "Team Associate",
-        image: praveen,
-      },
-      {
-        id: "04",
-        name: "Janhavi A Hebbar",
-        position: "Team Associate",
-        image: janhavi,
-      },
-    ],
-  },
-  {
-    name: "Tech Team",
-    icon: "desktop",
-    members: [
-      { id: "01", name: "Rahul Aithal", position: "Team Lead", image: rahul },
-      { id: "02", name: "Abhay S", position: "Team Associate", image: abhay },
-      {
-        id: "03",
-        name: "Abhiram H",
-        position: "Team Associate",
-        image: abhiram,
-      },
-    ],
-  },
-  {
-    name: "Marketing Team",
-    icon: "megaphone-simple",
-    members: [
-      {
-        id: "01",
-        name: "Sakshi S Maliye",
-        position: "Team Lead",
-        image: sakshi,
-      },
-      {
-        id: "02",
-        name: "Jessica J Richard",
-        position: "Team Associate",
-        image: jessica,
-      },
-      {
-        id: "03",
-        name: "Samiksha D",
-        position: "Team Associate",
-        image: samiksha,
-      },
-    ],
-  },
-  {
-    name: "CTF Team",
-    icon: "flag-pennant",
-    members: [
-      { id: "01", name: "Sagar", position: "CTF Team", image: sagar },
-      { id: "02", name: "Jeffery", position: "CTF Team", image: jeffery },
-      { id: "03", name: "Vachan", position: "CTF Team", image: vachan },
-    ],
-  },
-];
+import { teams } from "./teams.ts";
 ---
 
 <MainLayout>
@@ -226,7 +27,7 @@ const teams = [
             alt="Camera Background"
             priority
             format="avif"
-            class="h-full w-full object-cover object-[0px_23%] pointer-events-none opacity-0 transition-opacity duration-200"
+            class="pointer-events-none h-full w-full object-cover object-[0px_23%] opacity-0 transition-opacity duration-200"
             aria-hidden="true"
             onload="this.style.opacity='1'"
           />
@@ -370,7 +171,7 @@ const teams = [
             src={LockBackground}
             alt="Lock Background"
             format="avif"
-            class="h-full w-full object-cover pointer-events-none opacity-0 transition-opacity duration-200"
+            class="pointer-events-none h-full w-full object-cover opacity-0 transition-opacity duration-200"
             aria-hidden="true"
             onload="this.style.opacity='1'"
           />

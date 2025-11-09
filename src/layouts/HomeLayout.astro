@@ -19,7 +19,7 @@ import background from "@/assets/background.png";
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
     />
-    <title>Hashvault</title>
+    <title>HashVault</title>
   </head>
   <body
     class="bg-hash-black relative h-full p-2 text-white lg:min-h-screen xl:p-4"
@@ -43,7 +43,6 @@ import background from "@/assets/background.png";
     </div>
     <script is:inline>
       if (window.matchMedia("(min-width: 1024px)").matches) {
-        // Wait for DOM to be fully loaded
         function initParallax() {
           const img = document.getElementById("parallax-bg");
 
@@ -52,26 +51,20 @@ import background from "@/assets/background.png";
             return;
           }
 
-          console.log("Parallax initialized", img); // Debug log
-
-          // Parallax strength factor (tune between 15–40 for intensity)
           const strength = 25;
           let targetX = 0,
             targetY = 0;
           let currentX = 0,
             currentY = 0;
 
-          // Handle mouse move
           window.addEventListener("mousemove", (e) => {
             const { innerWidth, innerHeight } = window;
             const x = (e.clientX - innerWidth / 2) / innerWidth;
             const y = (e.clientY - innerHeight / 2) / innerHeight;
             targetX = x * strength;
             targetY = y * strength;
-            console.log("Mouse move:", targetX, targetY); // Debug log
           });
 
-          // Smoothly animate towards target
           function animate() {
             currentX += (targetX - currentX) * 0.1;
             currentY += (targetY - currentY) * 0.1;
@@ -82,11 +75,9 @@ import background from "@/assets/background.png";
           animate();
         }
 
-        // Try multiple initialization methods
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", initParallax);
         } else {
-          // DOM already loaded
           initParallax();
         }
       }
