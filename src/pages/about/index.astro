@@ -224,8 +224,11 @@ const teams = [
           <Image
             src={CameraBackground}
             alt="Camera Background"
+            priority
             format="avif"
-            class="h-full w-full object-cover object-[0px_23%]"
+            class="h-full w-full object-cover object-[0px_23%] pointer-events-none opacity-0 transition-opacity duration-200"
+            aria-hidden="true"
+            onload="this.style.opacity='1'"
           />
         </div>
         <div class="bg-hash-purple/10 absolute inset-0 backdrop-brightness-90">
@@ -367,7 +370,9 @@ const teams = [
             src={LockBackground}
             alt="Lock Background"
             format="avif"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-cover pointer-events-none opacity-0 transition-opacity duration-200"
+            aria-hidden="true"
+            onload="this.style.opacity='1'"
           />
         </div>
         <div class="bg-hash-purple/10 absolute inset-0 backdrop-brightness-90">

@@ -3,7 +3,7 @@ import "../styles/global.css";
 import "@fontsource/archivo-black";
 import "@fontsource-variable/geist-mono";
 import { Image } from "astro:assets";
-import background from "@/assets/background.png"
+import background from "@/assets/background.png";
 ---
 
 <!doctype html>
@@ -27,17 +27,70 @@ import background from "@/assets/background.png"
   >
     {/* Background image */}
     <Image
-      quality={"high"}
-      format="avif"
+      id="parallax-bg"
       src={background}
-      alt="background"
-      class="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
+      alt=""
+      format="avif"
+      quality="high"
+      width={background.width}
+      priority
+      class="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-75 will-change-transform"
     />
 
     {/* Content container */}
     <div class="border-hash-purple flex min-h-full flex-col border-2">
       <slot />
     </div>
+    <script is:inline>
+      if (window.matchMedia("(min-width: 1024px)").matches) {
+        // Wait for DOM to be fully loaded
+        function initParallax() {
+          const img = document.getElementById("parallax-bg");
+
+          if (!img) {
+            console.error("Parallax background image not found");
+            return;
+          }
+
+          console.log("Parallax initialized", img); // Debug log
+
+          // Parallax strength factor (tune between 15–40 for intensity)
+          const strength = 25;
+          let targetX = 0,
+            targetY = 0;
+          let currentX = 0,
+            currentY = 0;
+
+          // Handle mouse move
+          window.addEventListener("mousemove", (e) => {
+            const { innerWidth, innerHeight } = window;
+            const x = (e.clientX - innerWidth / 2) / innerWidth;
+            const y = (e.clientY - innerHeight / 2) / innerHeight;
+            targetX = x * strength;
+            targetY = y * strength;
+            console.log("Mouse move:", targetX, targetY); // Debug log
+          });
+
+          // Smoothly animate towards target
+          function animate() {
+            currentX += (targetX - currentX) * 0.1;
+            currentY += (targetY - currentY) * 0.1;
+            img.style.transform = `scale(1.05) translate(${currentX}px, ${currentY}px)`;
+            requestAnimationFrame(animate);
+          }
+
+          animate();
+        }
+
+        // Try multiple initialization methods
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initParallax);
+        } else {
+          // DOM already loaded
+          initParallax();
+        }
+      }
+    </script>
   </body>
 </html>
 
@@ -47,5 +100,6 @@ import background from "@/assets/background.png"
     margin: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 </style>

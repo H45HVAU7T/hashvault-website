@@ -21,7 +21,9 @@ const { members } = Astro.props;
               format="avif"
               src={member.image}
               alt={member.name}
-              class="aspect-square object-cover"
+              class="aspect-square object-cover pointer-events-none opacity-0 transition-opacity duration-200"
+              aria-hidden="true"
+              onload="this.style.opacity='1'"
             />
           </div>
           <div class="mt-2 flex lg:flex-row flex-col lg:items-end justify-between lg:mt-4">

@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+img[aria-hidden="true"] {
+  font-size: 0 !important; /* hides text fallback */
+  color: transparent !important;
+}
+
 :root {
   /* --sl-font: 'Geist Mono', monospace; */
 
