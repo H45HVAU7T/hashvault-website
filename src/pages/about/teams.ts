@@ -198,7 +198,7 @@ export const teams = [
       },
       {
         id: "04",
-        name: "Shraddha Shetty GR",
+        name: "Shraddha Shetty G R",
         position: "Team Associate",
         image: shraddha,
       },
