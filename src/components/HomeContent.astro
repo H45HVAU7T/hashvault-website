@@ -4,19 +4,25 @@ const joinUs = "https://forms.gle/LkFCZuFvC6ryiiaF8";
 const openComms = "https://discord.gg/3YXya6dgxq";
 ---
 
-<div
-  class="border-hash-purple relative flex h-full grow flex-col justify-center overflow-hidden border-t-2 border-b-2"
->
+<div class="border-hash-purple relative flex h-full grow flex-col justify-center overflow-hidden border-t-2 border-b-2">
   <div
-    class="pointer-events-none absolute inset-0 hidden md:grid md:grid-cols-3"
+    class="absolute inset-0 grid pointer-events-none
+           grid-rows-3 md:grid-rows-1 md:grid-cols-3"
   >
+    <div class="column-bg bg-hash-purple/20 animate-key1"></div>
+    <div class="column-bg bg-hash-purple/20 animate-key2"></div>
+    <div class="column-bg bg-hash-purple/20 animate-key3"></div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-0 hidden md:grid md:grid-cols-3">
     <div class="relative"></div>
-    <div class="relative border-r-2 border-l-2"></div>
+    <div class="relative border-r-2 border-l-2 border-hash-purple"></div>
     <div class="relative"></div>
   </div>
 
   <div
-    class="grid-row-3 bg-hash-black/30 font-brutal glass-noise mt-6 grid text-center text-2xl font-black backdrop-blur-sm backdrop-saturate-150 md:mt-0 md:grid-cols-3"
+    class="bg-hash-black/30 font-brutal glass-noise mt-6 grid text-center text-2xl font-black backdrop-blur-sm backdrop-saturate-150 md:mt-0
+           grid-rows-3 md:grid-rows-1 md:grid-cols-3"
   >
     <a
       class="hover:bg-hash-black active:bg-hash-black/70 relative z-[1] transition-all hover:z-[2] hover:scale-[1.02] active:scale-[0.99] md:duration-100 xl:duration-200"
@@ -56,3 +62,38 @@ const openComms = "https://discord.gg/3YXya6dgxq";
     </a>
   </div>
 </div>
+
+<style>
+  .column-bg {
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+  }
+
+  @keyframes pianoTap {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    30% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .animate-key1 {
+    animation: pianoTap 1.2s ease-out forwards;
+    animation-delay: 0.4s;
+  }
+  .animate-key2 {
+    animation: pianoTap 1.2s ease-out forwards;
+    animation-delay: 0.55s;
+  }
+  .animate-key3 {
+    animation: pianoTap 1.2s ease-out forwards;
+    animation-delay: 0.7s;
+  }
+</style>

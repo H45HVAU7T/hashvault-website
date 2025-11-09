@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
-
 const { members } = Astro.props;
+// Calculate how many filler cards needed to complete the row
+const fillersNeeded = members.length % 4 === 0 ? 0 : 4 - (members.length % 4);
 ---
 
 <div
-  class="border-hash-purple flex flex-wrap justify-center overflow-hidden border-1"
+  class="border-hash-purple flex flex-wrap justify-start overflow-hidden border-2"
 >
   {
     members?.map(
@@ -15,26 +16,65 @@ const { members } = Astro.props;
         id: string;
         position: string;
       }) => (
-        <div class="border-hash-purple aspect-square w-1/2 border-1 p-2 font-mono text-white sm:w-1/2 lg:w-1/4 lg:p-4">
+        <div class="outline-hash-purple aspect-square w-1/2 p-2 font-mono text-white outline-1 sm:w-1/2 lg:w-1/4 lg:p-4">
           <div class="flex justify-center lg:p-6">
-            <Image
-              format="avif"
-              src={member.image}
-              alt={member.name}
-              class="aspect-square object-cover pointer-events-none opacity-0 transition-opacity duration-200"
-              aria-hidden="true"
-              onload="this.style.opacity='1'"
-            />
+            <div class="relative aspect-square w-full max-w-[250px]">
+              <div
+                class="bg-hash-purple/5 absolute inset-0 animate-pulse transition-opacity duration-300"
+                aria-hidden="true"
+              />
+              <Image
+                format="avif"
+                src={member.image}
+                alt={member.name}
+                class="pointer-events-none aspect-square object-cover opacity-0 transition-opacity duration-300"
+                aria-hidden="true"
+                onload="this.style.opacity='1'; this.previousElementSibling.style.opacity='0';"
+              />
+            </div>
           </div>
-          <div class="mt-2 flex lg:flex-row flex-col lg:items-end justify-between lg:mt-4">
+          <div class="mt-2 flex flex-col justify-between lg:mt-4 lg:flex-row lg:items-end">
             <div>
               <p class="text-xs text-white/75">({member.id})</p>
               <p class="text-sm font-semibold">{member.name}</p>
             </div>
-            <p class="text-xs lg:text-sm lg:text-right">{member.position}</p>
+            <p class="text-xs lg:text-right lg:text-sm">{member.position}</p>
           </div>
         </div>
       ),
     )
+  }
+  {/* Brutalist filler cards */}
+  {
+    Array.from({ length: fillersNeeded }).map((_, i) => (
+      <div class="group outline-hash-purple bg-hash-purple/5 relative flex aspect-square w-1/2 items-center justify-center overflow-hidden p-2 font-mono text-white outline-1 sm:w-1/2 lg:w-1/4 lg:p-4">
+        <svg
+          class="absolute inset-0 h-full w-full transition-transform duration-300 group-hover:scale-105"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <line
+            x1="0"
+            y1="0"
+            x2="100"
+            y2="100"
+            stroke="currentColor"
+            stroke-width="0.5"
+            class="text-hash-purple/30"
+            vector-effect="non-scaling-stroke"
+          />
+          <line
+            x1="100"
+            y1="0"
+            x2="0"
+            y2="100"
+            stroke="currentColor"
+            stroke-width="0.5"
+            class="text-hash-purple/30"
+            vector-effect="non-scaling-stroke"
+          />
+        </svg>
+      </div>
+    ))
   }
 </div>
