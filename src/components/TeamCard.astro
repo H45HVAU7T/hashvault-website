@@ -1,10 +1,7 @@
 ---
 import { Image } from "astro:assets";
 const { members } = Astro.props;
-// Calculate how many filler cards needed to complete the row
-const fillersNeeded = members.length % 4 === 0 ? 0 : 4 - (members.length % 4);
 ---
-
 <div
   class="border-hash-purple flex flex-wrap justify-start overflow-hidden border-2"
 >
@@ -17,8 +14,8 @@ const fillersNeeded = members.length % 4 === 0 ? 0 : 4 - (members.length % 4);
         position: string;
       }) => (
         <div class="outline-hash-purple aspect-square w-1/2 p-2 font-mono text-white outline-1 sm:w-1/2 lg:w-1/4 lg:p-4">
-          <div class="flex justify-center lg:p-6">
-            <div class="relative aspect-square w-full max-w-[250px]">
+          <div class="flex justify-center p-2 md:p-2 lg:p-4">
+            <div class="relative aspect-square w-full overflow-hidden">
               <div
                 class="bg-hash-purple/5 absolute inset-0 animate-pulse transition-opacity duration-300"
                 aria-hidden="true"
@@ -27,7 +24,7 @@ const fillersNeeded = members.length % 4 === 0 ? 0 : 4 - (members.length % 4);
                 format="avif"
                 src={member.image}
                 alt={member.name}
-                class="pointer-events-none aspect-square object-cover opacity-0 transition-opacity duration-300"
+                class="pointer-events-none relative z-10 aspect-square w-full object-cover opacity-0 transition-opacity duration-300"
                 aria-hidden="true"
                 onload="this.style.opacity='1'; this.previousElementSibling.style.opacity='0';"
               />
@@ -44,10 +41,43 @@ const fillersNeeded = members.length % 4 === 0 ? 0 : 4 - (members.length % 4);
       ),
     )
   }
-  {/* Brutalist filler cards */}
+  {/* Brutalist filler cards - mobile (2 columns) */}
   {
-    Array.from({ length: fillersNeeded }).map((_, i) => (
-      <div class="group outline-hash-purple bg-hash-purple/5 relative flex aspect-square w-1/2 items-center justify-center overflow-hidden p-2 font-mono text-white outline-1 sm:w-1/2 lg:w-1/4 lg:p-4">
+    Array.from({ length: members.length % 2 === 0 ? 0 : 1 }).map((_, i) => (
+      <div class="group outline-hash-purple bg-hash-purple/5 relative flex aspect-square w-1/2 items-center justify-center overflow-hidden p-2 font-mono text-white outline-1 sm:w-1/2 lg:hidden lg:p-4">
+        <svg
+          class="absolute inset-0 h-full w-full transition-transform duration-300 group-hover:scale-105"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <line
+            x1="0"
+            y1="0"
+            x2="100"
+            y2="100"
+            stroke="currentColor"
+            stroke-width="0.5"
+            class="text-hash-purple/30"
+            vector-effect="non-scaling-stroke"
+          />
+          <line
+            x1="100"
+            y1="0"
+            x2="0"
+            y2="100"
+            stroke="currentColor"
+            stroke-width="0.5"
+            class="text-hash-purple/30"
+            vector-effect="non-scaling-stroke"
+          />
+        </svg>
+      </div>
+    ))
+  }
+  {/* Brutalist filler cards - desktop (4 columns) */}
+  {
+    Array.from({ length: members.length % 4 === 0 ? 0 : 4 - (members.length % 4) }).map((_, i) => (
+      <div class="group outline-hash-purple bg-hash-purple/5 relative hidden aspect-square w-1/2 items-center justify-center overflow-hidden p-2 font-mono text-white outline-1 sm:w-1/2 lg:flex lg:w-1/4 lg:p-4">
         <svg
           class="absolute inset-0 h-full w-full transition-transform duration-300 group-hover:scale-105"
           viewBox="0 0 100 100"
