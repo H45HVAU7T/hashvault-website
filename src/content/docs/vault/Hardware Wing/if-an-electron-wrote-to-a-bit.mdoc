@@ -1,0 +1,66 @@
+---
+title: If an electron wrote to a bit…
+description: Exploring the intersection of hardware engineering and cybersecurity.
+---
+
+Think about it, two worlds that are secretly obsessed with control, finally meet. The world that shapes electrons with copper traces and the world that shapes behavior with exploits. For the most of it, electronics engineers and cyber pros are chasing the same thrill of total mastery over a device.
+
+![Circuit Board](../../../../assets/content-images/circuit.jpg)
+
+Think of the innocent dusty *smart bulb* hanging from your ceiling. What if you refuse to accept that it is a finished product? This time you unscrew the case, not to fix the lethargic flicker but to ask what secrets are etched into its silicon heart.
+
+I'd not call this destruction… It's awakening! It's new! For the electronics mind like mine, it's the wins in tracing power rails and decoupling capacitors. For the cyber mind, it's probably spotting unshielded debug pads begging for a probe.
+
+Hardware hacking begins here, in this electric pause before the first multimeter beep, uniting two tribes bothered by black boxes.
+
+## Two tribes, one obsession
+
+Cyber folks who chase bits and those electrons flipping states to unlock doors or crash kingdoms and electronics folks who obsess over the electrons dancing through gates, timers ticking, ADCs sampling, signals whispering across buses both stare at the same PCB. The hardware engineer, in general, dreams of a stable UART at baud 115200. The security tester is in all of us by instinct! Which is why understanding hardware/IoT security gets interestingly simpler. If we learn, we would immediately smell the root shell.
+
+Why do we need to?
+
+Simple. If you are in the domain of hardware, you would be dealing with manufactured parts with beautiful imperfections that are unavoidable. So, the data streams through all of them could leak or lie if they are left unsecured.
+
+To be secure with data is a shared obsession.
+
+## First gentle walkthrough…
+
+A shared lab routine:
+
+1. **Choose a sacrificial gadget**
+
+   We're allowed to break it but we must learn something worth more than its demise. Pick something cheap, replaceable, simple…an IoT plug, a bulb or a toy.
+
+2. **Open and observe.**
+
+   We all need time as newbies to understand the architecture which is so delicate, it almost goes unseen. Photograph the PCB, make a note of the chips you can identify, draw a quick block diagram. All this, while you ask two parallel questions:
+
+   > “How would I redesign this to be more robust?”
+
+   > “If I were malicious, where is it easiest to slip in?”
+
+3. **Listen.**
+
+   Look for serial pads, plug in a USB-to-serial, and see if it prints logs or shells at boot.
+   Treat every boot message as both debugging gold and a trust statement, that not one untrusted could see it.
+
+4. **Conclude your learning.**
+
+   Try narrating through two lenses.
+   An electronics lens would talk more of configuration: timers, ADCs, PWM, state machines…
+
+   > “Oh, that's a PID loop for the motor and the RTOS scheduler.”
+
+   A security lens would talk more of every assumption the device makes, every confirmation and legal document…
+
+   > “Oh, that's a hardcoded password, a debug command and no signature on signed updates.”
+
+### Reading firmware is like reading both, the designer's hopes and the attacker's roadmap at once.
+
+Systems are telling us where they are fragile through two dialects: *exploit chains and bode plots*. We, as hardware engineers, do better if we learn this language and its dialects. I ask everyone well versed in either of the two to explore the other. If you're an electronics guy, run the next design as though a curious attacker sits across the room. If you're a security guy, touch the soldering iron or a multimeter before running the next scan.
+
+Also if you're really feeling the push to get right into it, I'm leaving my favourite read here: [https://medium.com/@marcel.rickcen](https://medium.com/@marcel.rickcen)
+
+> We teach little computers how to survive in a hostile universe, **together**.
+>
+> > This is the way.
