@@ -1,19 +1,20 @@
+// Founders
+import adithya from "@avatars/founders/adithya.avif";
+import abhishek from "@avatars/founders/abhishek.avif";
+
 // Management Team
-import adithya from "@avatars/management/adithya.avif";
-import abhishek from "@avatars/management/abhishek.png";
-import kruthika from "@avatars/management/kruthika.avif";
+import nishitha from "@avatars/management/nishitha.avif";
+import abhiram from "@avatars/management/abhiram.avif";
+import sudeeksha from "@avatars/management/sudeeksha.png";
 
 // Logistics Team
-import nishitha from "@avatars/logistics/nishitha.avif";
 import kushal from "@avatars/logistics/kushal.png";
 import sreekar from "@avatars/logistics/sreekar.avif";
-import sudeeksha from "@avatars/logistics/sudeeksha.png";
 
 // Events Team
 import dhanvi from "@avatars/events/dhanvi.png";
 import urvee from "@avatars/events/urvee.png";
 import debarati from "@avatars/events/debarati.avif";
-import jeet from "@avatars/events/jeet.png"; 
 
 // Media Team
 import shreya from "@avatars/media/shreya.png";
@@ -25,7 +26,6 @@ import chethan from "@avatars/media/chethan.avif";
 // Tech Team
 import rahul from "@avatars/tech/rahul.avif";
 import abhay from "@avatars/tech/abhay.avif";
-import abhiram from "@avatars/tech/abhiram.avif";
 
 // Marketing Team
 import sakshi from "@avatars/marketing/sakshi.png";
@@ -41,26 +41,42 @@ import vachan from "@avatars/ctf/vachan.png";
 
 export const teams = [
   {
-    name: "Management Team",
-    icon: "briefcase",
+    name: "Founders",
+    icon: "compass-rose",
     members: [
-      {
+       {
         id: "01",
         name: "Adithya Karthik M",
-        position: "President",
         image: adithya,
       },
       {
         id: "02",
         name: "Abhishek",
-        position: "Vice President",
         image: abhishek,
+      },
+    ],
+  },
+  {
+    name: "Management Team",
+    icon: "briefcase",
+    members: [
+      {
+        id: "01",
+        name: "Nishita Sridhar",
+        position: "President",
+        image: nishitha,
+      },
+      {
+        id: "02",
+        name: "Abhiram H",
+        position: "Vice President",
+        image: abhiram,
       },
       {
         id: "03",
-        name: "Kruthika B A",
+        name: "Sudeeksha H",
         position: "Secretary",
-        image: kruthika,
+        image: sudeeksha,
       },
     ],
   },
@@ -70,27 +86,15 @@ export const teams = [
     members: [
       {
         id: "01",
-        name: "Nishita Sridhar",
+        name: "Sreekar S Vasist",
         position: "Team Lead",
-        image: nishitha,
+        image: sreekar,
       },
       {
         id: "02",
         name: "Kushal Maji",
         position: "Team Associate",
         image: kushal,
-      },
-      {
-        id: "03",
-        name: "Sreekar S Vasist",
-        position: "Team Associate",
-        image: sreekar,
-      },
-      {
-        id: "04",
-        name: "Sudeeksha H",
-        position: "Team Associate",
-        image: sudeeksha,
       },
     ],
   },
@@ -106,21 +110,15 @@ export const teams = [
       },
       {
         id: "02",
-        name: "Urvee S Bettadapur",
-        position: "Team Associate",
-        image: urvee,
-      },
-      {
-        id: "03",
         name: "Debarati Mukherjee",
         position: "Team Associate",
         image: debarati,
       },
       {
-        id: "04",
-        name: "Jeet Bagdai",
+        id: "03",
+        name: "Urvee S Bettadapur",
         position: "Team Associate",
-        image: jeet,
+        image: urvee,
       },
     ],
   },
@@ -136,9 +134,9 @@ export const teams = [
       },
       {
         id: "02",
-        name: "Prabhav Pandey",
+        name: "Chethan Kumar Y",
         position: "Team Associate",
-        image: prabhav,
+        image: chethan,
       },
       {
         id: "03",
@@ -148,15 +146,15 @@ export const teams = [
       },
       {
         id: "04",
-        name: "Yashaswini M",
+        name: "Prabhav Pandey",
         position: "Team Associate",
-        image: yashaswini,
+        image: prabhav,
       },
       {
         id: "05",
-        name: "Chethan Kumar Y",
+        name: "Yashaswini M",
         position: "Team Associate",
-        image: chethan,
+        image: yashaswini,
       },
     ],
   },
@@ -166,12 +164,6 @@ export const teams = [
     members: [
       { id: "01", name: "Rahul Aithal", position: "Team Lead", image: rahul },
       { id: "02", name: "Abhay S", position: "Team Associate", image: abhay },
-      {
-        id: "03",
-        name: "Abhiram H",
-        position: "Team Associate",
-        image: abhiram,
-      },
     ],
   },
   {
@@ -180,9 +172,9 @@ export const teams = [
     members: [
       {
         id: "01",
-        name: "Sakshi S Maliye",
+        name: "Samiksha D",
         position: "Team Lead",
-        image: sakshi,
+        image: samiksha,
       },
       {
         id: "02",
@@ -192,21 +184,21 @@ export const teams = [
       },
       {
         id: "03",
-        name: "Samiksha D",
+        name: "Sakshi S Maliye",
         position: "Team Associate",
-        image: samiksha,
+        image: sakshi,
       },
       {
         id: "04",
-        name: "Shraddha Shetty G R",
-        position: "Team Associate",
-        image: shraddha,
-      },
-      {
-        id: "05",
         name: "Shipra Prashanth",
         position: "Team Associate",
         image: shipra ,
+      },
+      {
+        id: "05",
+        name: "Shraddha Shetty G R",
+        position: "Team Associate",
+        image: shraddha,
       },
     ],
   },
