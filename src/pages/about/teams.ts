@@ -46,12 +46,12 @@ export const teams = [
     members: [
        {
         id: "01",
-        name: "Adithya Karthik M",
+        name: "Adithyakarthik M",
         image: adithya,
       },
       {
         id: "02",
-        name: "Abhishek",
+        name: "Abhishek M L",
         image: abhishek,
       },
     ],
