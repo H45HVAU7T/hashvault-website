@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "start:local": "pnpm build && pnpm preview",
+    "start:local": "bun run build && bun run preview",
     "astro": "astro",
     "format:check": "prettier --check .",
     "format::write": "prettier --write ."
