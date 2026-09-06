@@ -8,13 +8,17 @@ import abhiram from "@avatars/management/abhiram.avif";
 import sudeeksha from "@avatars/management/sudeeksha.png";
 
 // Logistics Team
-import kushal from "@avatars/logistics/kushal.png";
 import sreekar from "@avatars/logistics/sreekar.avif";
+import srikanth from "@avatars/logistics/srikanth.avif";
 
 // Events Team
-import dhanvi from "@avatars/events/dhanvi.png";
+import dhanvi from "@avatars/events/dhanvi.avif";
 import urvee from "@avatars/events/urvee.png";
 import debarati from "@avatars/events/debarati.avif";
+import shreyakv from "@avatars/events/shreyakv.avif";
+import karthik from "@avatars/events/karthik.avif";
+import jayani from "@avatars/events/jayani.avif";
+import sameeksha from "@avatars/events/sameeksha.avif";
 
 // Media Team
 import shreya from "@avatars/media/shreya.png";
@@ -26,18 +30,18 @@ import chethan from "@avatars/media/chethan.avif";
 // Tech Team
 import rahul from "@avatars/tech/rahul.avif";
 import abhay from "@avatars/tech/abhay.avif";
+import dhanika from "@avatars/tech/dhanika.avif";
+import vachan from "@avatars/tech/vachan.avif";
 
 // Marketing Team
-import sakshi from "@avatars/marketing/sakshi.png";
-import jessica from "@avatars/marketing/jessica.avif";
 import samiksha from "@avatars/marketing/samiksha.png";
-import shraddha from "@avatars/marketing/shraddha.avif"; 
-import shipra from "@avatars/marketing/shipra.avif"; 
+import shraddha from "@avatars/marketing/shraddha.avif";
+import purvi from "@avatars/marketing/purvi.avif";
+import dhruthi from "@avatars/marketing/dhruthi.avif";
 
 // CTF Team
 import sagar from "@avatars/ctf/sagar.png";
 import jeffery from "@avatars/ctf/jeffery.png";
-import vachan from "@avatars/ctf/vachan.png";
 
 export const teams = [
   {
@@ -92,9 +96,9 @@ export const teams = [
       },
       {
         id: "02",
-        name: "Kushal Maji",
+        name: "Srikanth AVK",
         position: "Team Associate",
-        image: kushal,
+        image: srikanth,
       },
     ],
   },
@@ -120,6 +124,30 @@ export const teams = [
         position: "Team Associate",
         image: urvee,
       },
+      {
+        id: "04",
+        name: "Shreya KV",
+        position: "Team Associate",
+        image: shreyakv,
+      },
+      {
+        id: "05",
+        name: "Karthik Gowda R",
+        position: "Team Associate",
+        image: karthik,
+      },
+      {
+        id: "06",
+        name: "Jayani Sudhakar",
+        position: "Team Associate",
+        image: jayani,
+      },
+      {
+        id: "07",
+        name: "Sameeksha Srinivas",
+        position: "Team Associate",
+        image: sameeksha,
+      },
     ],
   },
   {
@@ -128,21 +156,21 @@ export const teams = [
     members: [
       {
         id: "01",
-        name: "Shreya Shri Pathak ",
+        name: "Janhavi A Hebbar",
         position: "Team Lead",
-        image: shreya,
+        image: janhavi,
       },
       {
         id: "02",
-        name: "Chethan Kumar Y",
+        name: "Shreya Shri Pathak",
         position: "Team Associate",
-        image: chethan,
+        image: shreya,
       },
       {
         id: "03",
-        name: "Janhavi A Hebbar",
+        name: "Chethan Kumar Y",
         position: "Team Associate",
-        image: janhavi,
+        image: chethan,
       },
       {
         id: "04",
@@ -164,6 +192,18 @@ export const teams = [
     members: [
       { id: "01", name: "Rahul Aithal", position: "Team Lead", image: rahul },
       { id: "02", name: "Abhay S", position: "Team Associate", image: abhay },
+      {
+        id: "03",
+        name: "Dhanika K",
+        position: "Team Associate",
+        image: dhanika,
+      },
+      {
+        id: "04",
+        name: "Vachan Padival",
+        position: "Team Associate",
+        image: vachan,
+      },
     ],
   },
   {
@@ -178,27 +218,21 @@ export const teams = [
       },
       {
         id: "02",
-        name: "Jessica J Richard",
-        position: "Team Associate",
-        image: jessica,
-      },
-      {
-        id: "03",
-        name: "Sakshi S Maliye",
-        position: "Team Associate",
-        image: sakshi,
-      },
-      {
-        id: "04",
-        name: "Shipra Prashanth",
-        position: "Team Associate",
-        image: shipra ,
-      },
-      {
-        id: "05",
         name: "Shraddha Shetty G R",
         position: "Team Associate",
         image: shraddha,
+      },
+      {
+        id: "03",
+        name: "Purvi J",
+        position: "Team Associate",
+        image: purvi,
+      },
+      {
+        id: "04",
+        name: "Dhruthi M Patel",
+        position: "Team Associate",
+        image: dhruthi,
       },
     ],
   },
@@ -208,7 +242,6 @@ export const teams = [
     members: [
       { id: "01", name: "Sagar", position: "CTF Team", image: sagar },
       { id: "02", name: "Jeffery", position: "CTF Team", image: jeffery },
-      { id: "03", name: "Vachan", position: "CTF Team", image: vachan },
     ],
   },
 ];
