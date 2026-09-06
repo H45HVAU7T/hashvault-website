@@ -96,7 +96,7 @@ export const teams = [
       },
       {
         id: "02",
-        name: "Srikanth AVK",
+        name: "Srikanth A V K",
         position: "Team Associate",
         image: srikanth,
       },
@@ -126,7 +126,7 @@ export const teams = [
       },
       {
         id: "04",
-        name: "Shreya KV",
+        name: "Shreya K V",
         position: "Team Associate",
         image: shreyakv,
       },
